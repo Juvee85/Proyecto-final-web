@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
-   version="6.0">
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <filter>
+        <filter-name>FiltroAuntenticacion</filter-name>
+        <filter-class>filtros.FiltroAuntenticacion</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroAuntenticacion</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlets.RegistroServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MunicipioServlet</servlet-name>
+        <servlet-class>servlets.MunicipioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MunicipioServlet</servlet-name>
+        <url-pattern>/municipios</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
